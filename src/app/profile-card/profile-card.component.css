@@ -1,9 +1,3 @@
-html,
-body {
-    background: #FCEEB5;
-    font-family: Abel, Arial, Verdana, sans-serif;
-}
-
 .center {
     position: absolute;
     top: 50%;
@@ -21,6 +15,7 @@ body {
     overflow: hidden;
     position: relative;
     margin: 1.5rem;
+    cursor: pointer;
 }
 
 .card h1 {

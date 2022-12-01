@@ -27,7 +27,7 @@ export class UserListComponent implements OnInit, OnDestroy {
   }
   
   public onFilterUsers(recherche: string) {
-    this._userService.getUsers().subscribe(resultat => {
+    this._userService.searchInUsersName(recherche).subscribe(resultat => {
       this.users = resultat;
     });
   }

@@ -1,3 +1,9 @@
-<p>user-details for {{ userId }}</p>
+<div *ngIf="user" class="user-detail">
+<h2 >{{ user | fullName}}</h2>
+<h3>{{ user.login.username }}</h3>
+<h3>{{ country }}</h3>
+<h4>{{ user.email }}</h4>
+<img [src]="user.picture.large">
+</div>
 
-<a routerLink="/user/1337">next</a>
+<a [routerLink]="'/user/' + nextId">next</a>
