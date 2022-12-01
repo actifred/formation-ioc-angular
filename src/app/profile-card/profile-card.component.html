@@ -1,12 +1,33 @@
-<div class="profile-card">
-    <div class="card-content">
-      <img [src]="user.picture.thumbnail">
-      <div class="card-details">
-        <h3>{{ user | fullName }}</h3>
-        <p>
-        Country: {{ user.location.country }}<br>
-        Phone: {{ user.phone }}
-        </p>
+<div class="card" [class.green]="user.gender == 'female'">
+  <div class="additional">
+    <div class="user-card">
+      <div class="level center">
+        {{user.login.username}}
+      </div>
+      <div class="points center">
+        {{user.gender}}
+      </div>
+      <img [src]="user.picture.medium" class="center">
+    </div>
+    <div class="more-info">
+      <h1>{{ user | fullName }}</h1>
+      <div class="coords">
+        <span>{{user.email}}</span>
+    </div>
+      <div class="coords">
+        <span>{{user.phone}}</span>
+        <span>{{user.location.street.number}}, {{user.location.street.name}}</span>
+      </div>
+      <div class="coords">
+        <span>{{user.cell}}</span>
+        <span>{{user.location.city}}, {{user.location.country}}</span>
       </div>
     </div>
   </div>
+  <div class="general">
+    <h1>{{ user | fullName }}</h1>
+    <p>Naissance: {{ user.dob.date | date }}</p>
+    <p>Age: {{ user.dob.age }}</p>
+    <span class="more">Survoler la carte pour les détails</span>
+  </div>
+</div>
