@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import { BehaviorSubject, map } from 'rxjs';
+import { BehaviorSubject, map, take } from 'rxjs';
 import { countryListToken } from './app.module';
 import { Person } from './models/person';
 
@@ -35,7 +35,8 @@ export class UserService {
 
   public getUserById(userId: string) {
     return this._users$.pipe(
-      map((ulist) => ulist.find((u) => u.login.uuid === userId))
+      map((ulist) => ulist.find((u) => u.login.uuid === userId)),
+      take(1)
     );
   }
 
@@ -58,7 +59,8 @@ export class UserService {
             u.name.first.toLowerCase().indexOf(minSearch) !== -1
           );
         })
-      )
+      ),
+      take(1)
     );
   }
 }
