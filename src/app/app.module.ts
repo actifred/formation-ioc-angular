@@ -8,6 +8,10 @@ import { FullNamePipe } from './full-name.pipe';
 import { UserService } from './user.service';
 import { FormsModule } from '@angular/forms';
 import { countryList } from './models/countries';
+import { AppRoutingModule } from './app-routing.module';
+import { UserListComponent } from './user-list/user-list.component';
+import { AboutComponent } from './about/about.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 export const countryListToken = new InjectionToken("countryList");
 
@@ -15,12 +19,16 @@ export const countryListToken = new InjectionToken("countryList");
   declarations: [
     AppComponent,
     ProfileCardComponent,
-    FullNamePipe
+    FullNamePipe,
+    UserListComponent,
+    AboutComponent,
+    UserDetailsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [ 
     UserService,

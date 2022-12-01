@@ -1,7 +1,8 @@
-<form #filtrage="ngForm" (ngSubmit)="onFilterUsers(filtrage.value.recherche)">
-<input type="text" placeholder="Filtrer les utilisateurs" name="recherche" ngModel>
-<button type="submit">Cherche</button>
-</form>
-<div class="flex-grid">
-<app-profile-card *ngFor="let user of users" [user]="user"></app-profile-card>
-</div>
+<h2>Gestion des utilisateurs</h2>
+
+<nav>
+    <a routerLink="/">Home</a>
+    <a routerLink="/about">About</a>
+</nav>
+
+<router-outlet></router-outlet>
