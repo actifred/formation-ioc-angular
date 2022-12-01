@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Person } from './models/person';
 import { profiles } from './resources/profiles';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +11,15 @@ import { profiles } from './resources/profiles';
 export class AppComponent {
   title = 'iocean-angular';
 
-  public users = profiles;
+  public users : Person[] = [];
+
+  constructor(private _userService: UserService) {}
+
+  ngOnInit() {
+    this.users = this._userService.getUsers();
+  }
   
+  public onFilterUsers(recherche: string) {
+    this.users = this._userService.searchUsersName(recherche);
+  }
 }
