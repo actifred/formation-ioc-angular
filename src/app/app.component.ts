@@ -16,10 +16,21 @@ export class AppComponent {
   constructor(private _userService: UserService) {}
 
   ngOnInit() {
-    this.users = this._userService.getUsers();
+    let abonnement = this._userService.getUsers().subscribe({
+      next: resultat => {
+              console.log('Le service a répondu', resultat)
+              this.users = resultat;
+            },
+      complete: () => console.log('Le service a rendu la main')
+    });
+    console.log('LISTE APPELEE AU DEMARRAGE')
   }
   
   public onFilterUsers(recherche: string) {
-    this.users = this._userService.searchUsersName(recherche);
+    this._userService.getUsers().subscribe(resultat => {
+      console.log('Le service a répondu')
+      this.users = resultat;
+    });
+    console.log('LISTE RAPPELEE')
   }
 }

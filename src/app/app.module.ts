@@ -1,5 +1,6 @@
 import { NgModule, InjectionToken } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ProfileCardComponent } from './profile-card/profile-card.component';
@@ -18,7 +19,8 @@ export const countryListToken = new InjectionToken("countryList");
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [ 
     UserService,
