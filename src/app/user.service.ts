@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import { BehaviorSubject, filter, map, Subject } from 'rxjs';
+import { BehaviorSubject, map } from 'rxjs';
 import { countryListToken } from './app.module';
 import { Person } from './models/person';
 
@@ -19,7 +19,7 @@ export class UserService {
     @Inject(countryListToken) public maListedePays: any[]
   ) {
     this._http
-      .get<RandomUserResponse>('https://randomuser.me/api/?results=50')
+      .get<RandomUserResponse>('https://randomuser.me/api/?results=100')
       .subscribe({
         next: (res) => {
           this._users$.next(res.results);
@@ -39,9 +39,12 @@ export class UserService {
     );
   }
 
-  public getRandomUserId(): string {
+  public getRandomNextUserId(userId: string): string {
     const users = this._users$.getValue();
-    const randomInt = Math.floor(Math.random() * users.length);
+    let randomInt;
+    do {
+      randomInt = Math.floor(Math.random() * users.length);
+    } while (randomInt === users.length || users[randomInt].login.uuid === userId);
     return users[randomInt].login.uuid;
   }
 

@@ -29,7 +29,7 @@ export class UserDetailsComponent implements OnInit {
           takeUntil(this._unsubscribe$)
         ).subscribe(p => {
           this.userId = p['uid'];
-          this.nextId = this._userService.getRandomUserId();
+          this.nextId = this._userService.getRandomNextUserId(this.userId);
           this._userService.getUserById(this.userId).subscribe({
             next: user => {
               this.user = user;
