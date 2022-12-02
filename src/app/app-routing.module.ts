@@ -16,23 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'user',
-    component: UserMainComponent,
-    children: [
-      {
-        path: 'fake-form',
-        component: FakeFormComponent,
-        canDeactivate: [ DirtyGuard ]
-      },
-      {
-        path: ':uid',
-        component: UserDetailsComponent,
-        canActivate: [ UserGuard ]
-      },
-      {
-        path: '',
-        component: UserListComponent
-      },
-    ]
+    loadChildren: () => import('./user/user.module').then(m => m.UserModule)
   },
   {
     path: '',

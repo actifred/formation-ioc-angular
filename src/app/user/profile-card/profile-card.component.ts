@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Person } from '../models/person';
+import { Person } from '../../models/person';
 
 @Component({
   selector: 'app-profile-card',
