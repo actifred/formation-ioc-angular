@@ -13,6 +13,7 @@ import { UserMainComponent } from './user/user-main/user-main.component';
 import { SharedModule } from './shared/shared.module';
 import { DirtyGuard } from './dirty.guard';
 import { UserGuard } from './user.guard';
+import { UserResolver } from './user.resolver';
 
 export const countryListToken = new InjectionToken("countryList");
 
@@ -37,7 +38,8 @@ export const countryListToken = new InjectionToken("countryList");
       useValue: countryList
     },
     UserGuard,
-    DirtyGuard
+    DirtyGuard,
+    UserResolver
   ],
   bootstrap: [AppComponent]
 })

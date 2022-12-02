@@ -29,6 +29,10 @@ export class UserDetailsComponent implements OnInit {
           takeUntil(this._unsubscribe$),
           tap(param => this.userId = param['uid']),
           tap(param => this.nextId = this._userService.getRandomNextUserId(param['uid'])),
+        // ).subscribe();
+        // this._route.data.subscribe(data => this.user = data['user']);
+        // --- Use case : avec UserResolver => commenter ce qui suit et décommenter les 2 lignes
+        // --- au dessus de ce commentaire. (décommenter aussi le resolver dans les routes)
           mergeMap(p => {
             console.log('Parametre', p);
             return this._userService.getUserById(this.userId)
