@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { delay, mergeMap, Subject, takeUntil, tap } from 'rxjs';
+import { concatMap, mergeMap, Subject, switchMap, takeUntil, tap } from 'rxjs';
 import { countryListToken } from '../app.module';
 import { Person } from '../models/person';
 import { UserService } from '../user.service';

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import { BehaviorSubject, map, take } from 'rxjs';
+import { BehaviorSubject, delay, map, take } from 'rxjs';
 import { countryListToken } from './app.module';
 import { Person } from './models/person';
 
@@ -35,6 +35,7 @@ export class UserService {
 
   public getUserById(userId: string) {
     return this._users$.pipe(
+      delay(2000),
       map((ulist) => ulist.find((u) => u.login.uuid === userId)),
       take(1)
     );
