@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Subscription, Subject, takeUntil } from 'rxjs';
 import { Person } from '../../models/person';
 import { UserService } from '../../core/user.service';
@@ -9,7 +9,7 @@ import { UserService } from '../../core/user.service';
   styleUrls: ['./user-list.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UserListComponent {
+export class UserListComponent implements OnChanges {
 
   @Input()
   public users : Person[] | null = [];
@@ -19,6 +19,15 @@ export class UserListComponent {
 
   public onFilterUsers(recherche: string) {
     this.searchTextChanged.emit(recherche);
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+      console.log('CHANGEMENTS', changes)
+
+      // Exemple de gestion simultanée d'inputs
+      if (changes.hasOwnProperty('messages') && changes.hasOwnProperty('userList')) {
+        console.log("refresh")
+      }
   }
 
 }
