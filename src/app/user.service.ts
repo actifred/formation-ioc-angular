@@ -29,9 +29,9 @@ export class UserService {
       });
   }
 
-  public getUsers() {
-    return this.users$;
-  }
+  // public getUsers() {
+  //   return this.users$;
+  // }
 
   public getUserById(userId: string) {
     return this._users$.pipe(

@@ -26,18 +26,22 @@ export class UserDetailsComponent implements OnInit {
     ) {
     this._route.params
         .pipe(
-          takeUntil(this._unsubscribe$)
-        ).subscribe(p => {
-          this.userId = p['uid'];
-          this.nextId = this._userService.getRandomNextUserId(this.userId);
-          this._userService.getUserById(this.userId).subscribe({
-            next: user => {
-              this.user = user;
-              if (user?.nat) {
-                this._setCountryNameByShortCode(user.nat)
-              }
+          takeUntil(this._unsubscribe$),
+          tap(param => this.userId = param['uid']),
+          tap(param => this.nextId = this._userService.getRandomNextUserId(param['uid'])),
+          mergeMap(p => {
+            console.log('Parametre', p);
+            return this._userService.getUserById(this.userId)
+          }),
+          tap(u => console.log('le user a été chargé dans le pipe', u))
+        )
+        .subscribe({
+          next: user => {
+            this.user = user;
+            if (user?.nat) {
+              this._setCountryNameByShortCode(user.nat)
             }
-          })
+          }
         });
   }
 
