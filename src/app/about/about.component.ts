@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
+  titre = '';
+
   constructor() { }
 
   ngOnInit(): void {
+    this.titre = 'toto';
   }
 
 }

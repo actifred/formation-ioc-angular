@@ -7,6 +7,7 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { SharedModule } from '../shared/shared.module';
 import { ProfileCardComponent } from './profile-card/profile-card.component';
+import { UserListContainerComponent } from './user-list-container/user-list-container.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ProfileCardComponent } from './profile-card/profile-card.component';
     UserListComponent,
     UserDetailsComponent,
     FakeFormComponent,
-    ProfileCardComponent
+    ProfileCardComponent,
+    UserListContainerComponent
   ],
   imports: [
     CommonModule,

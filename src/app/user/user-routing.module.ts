@@ -5,6 +5,7 @@ import { UserGuard } from '../user.guard';
 import { UserResolver } from '../user.resolver';
 import { FakeFormComponent } from './fake-form/fake-form.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { UserListContainerComponent } from './user-list-container/user-list-container.component';
 import { UserListComponent } from './user-list/user-list.component';
 
 const routes: Routes = [
@@ -23,7 +24,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: UserListComponent
+    component: UserListContainerComponent
   }
 ];
 

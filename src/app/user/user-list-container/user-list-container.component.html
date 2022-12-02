@@ -1,0 +1,5 @@
+<app-user-list
+    [users]="users$ | async"
+    (searchTextChanged)="onFilterUsers($event)"
+>
+</app-user-list>
