@@ -1,0 +1,8 @@
+<h4>{{title}}</h4>
+<ng-content select=".description"></ng-content>
+<form>
+    <input type="text" placeholder="login"><br/>
+    <input type="password" placeholder="password"><br/>
+    <ng-content select=".remember"></ng-content><br/>
+    <button type="submit">Go</button>
+</form>

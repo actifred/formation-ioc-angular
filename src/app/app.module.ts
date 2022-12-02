@@ -14,6 +14,7 @@ import { SharedModule } from './shared/shared.module';
 import { DirtyGuard } from './dirty.guard';
 import { UserGuard } from './user.guard';
 import { UserResolver } from './user.resolver';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 export const countryListToken = new InjectionToken("countryList");
 
@@ -23,6 +24,7 @@ export const countryListToken = new InjectionToken("countryList");
     AboutComponent,
     SplashComponent,
     UserMainComponent,
+    LoginFormComponent,
   ],
   imports: [
     BrowserModule,
