@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { concatMap, mergeMap, Subject, switchMap, takeUntil, tap } from 'rxjs';
 import { countryListToken } from '../app.module';
 import { Person } from '../models/person';
-import { UserService } from '../user.service';
+import { UserService } from '../core/user.service';
 
 @Component({
   selector: 'app-user-details',

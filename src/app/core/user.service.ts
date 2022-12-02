@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { BehaviorSubject, delay, map, take } from 'rxjs';
-import { countryListToken } from './app.module';
-import { Person } from './models/person';
+import { countryListToken } from '../app.module';
+import { Person } from '../models/person';
 
 interface RandomUserResponse {
   results: Person[];

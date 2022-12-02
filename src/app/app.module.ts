@@ -4,8 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ProfileCardComponent } from './profile-card/profile-card.component';
-import { FullNamePipe } from './full-name.pipe';
-import { UserService } from './user.service';
+import { FullNamePipe } from './core/full-name.pipe';
+import { UserService } from './core/user.service';
 import { FormsModule } from '@angular/forms';
 import { countryList } from './models/countries';
 import { AppRoutingModule } from './app-routing.module';

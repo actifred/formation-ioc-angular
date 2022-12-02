@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription, Subject, takeUntil } from 'rxjs';
 import { Person } from '../models/person';
-import { UserService } from '../user.service';
+import { UserService } from '../core/user.service';
 
 @Component({
   selector: 'app-user-list',
