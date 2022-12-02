@@ -35,7 +35,7 @@ export class UserService {
 
   public getUserById(userId: string) {
     return this._users$.pipe(
-      delay(2000),
+      delay(500),
       map((ulist) => ulist.find((u) => u.login.uuid === userId)),
       take(1)
     );
